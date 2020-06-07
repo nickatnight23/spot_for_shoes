@@ -8,6 +8,10 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <div>
+    <%= link_to "log out", logout_path, method: :delete%>
+    <%= link_to "Add a Shoe", new_shoe_path%>
+  </div>
 
   <body>
     <%= yield %>
