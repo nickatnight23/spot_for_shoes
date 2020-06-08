@@ -2,8 +2,8 @@
 
 <%= form_for(@shoe) do |f|%>
 <div>
-<%= f.label :type%>
-<%= f.text_field :type%>
+<%= f.label :shoe_type%>
+<%= f.text_field :shoe_type%>
 </div>
 <div>
 <%= f.label :description%>
@@ -11,23 +11,17 @@
 </div>
 <p>Select a Brand that exists:</p>
 <div>
-    <% f.collection_select :brand_id, Brand.all,:id, :name%>
+    <%= f.collection_select :brand_id, Brand.all,:id, :name %>
 </div>
 
-<p>Or Add a new Brand:</p>
+<p> Or Create a new Brand:</p>
 <div>
-   <%=f.fields_for :brand do |b|%>
+   <%= f.fields_for :brand do |b|%>
    <%= b.label :name%>
    <%= b.text_field :name%>
-   <% end%>
-
+   <% end %>
 </div>
 
 <%= f.submit :submit %>
+<% end %>
 
-<%end%>
-
-t.string "type"
-    t.string "description"
-    t.integer "brand_id", null: false
-    t.integer "user_id", null: false
