@@ -1,1 +1,33 @@
 <h1>Add a new shoe!</h1>
+
+<%= form_for(@shoe) do |f|%>
+<div>
+<%= f.label :type%>
+<%= f.text_field :type%>
+</div>
+<div>
+<%= f.label :description%>
+<%= f.text_field :description%>
+</div>
+<p>Select a Brand that exists:</p>
+<div>
+    <% f.collection_select :brand_id, Brand.all,:id, :name%>
+</div>
+
+<p>Or Add a new Brand:</p>
+<div>
+   <%=f.fields_for :brand do |b|%>
+   <%= b.label :name%>
+   <%= b.text_field :name%>
+   <% end%>
+
+</div>
+
+<%= f.submit :submit %>
+
+<%end%>
+
+t.string "type"
+    t.string "description"
+    t.integer "brand_id", null: false
+    t.integer "user_id", null: false
