@@ -6,12 +6,19 @@ class ShoesController < ApplicationController
     end
 
     def create
+        @shoe = Shoe.new(shoe_params)
+        @shoe.user_id = session[:user_id]
+        if @shoe.save
+        redirect_to shoe_path(@shoe)
+        else
+         render :new
     end
+  end
         
     private
 
     def shoe_params
-        params.require(:shoe).permit(:type, :description, :brand_id, 
+        params.require(:shoe).permit(:shoe_type, :description, :brand_id, 
         brand_attributes:[:name])
     end
 end
