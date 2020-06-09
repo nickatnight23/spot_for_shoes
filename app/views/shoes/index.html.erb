@@ -1,0 +1,10 @@
+<h1>All Shoes!!</h1>
+
+<%@shoes.each do |sh|%>
+
+<h2><%=sh.shoe_type%>- <%=sh.brand.name%>
+</h2>
+<div>
+<p><%=sh.description%></p>
+</div>
+<%end%>
