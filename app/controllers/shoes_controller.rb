@@ -14,6 +14,13 @@ class ShoesController < ApplicationController
          render :new
     end
   end
+    def index
+        @shoes = Shoe.all
+    end
+
+    def show
+        @shoes = Shoe.find_by_id(params[:id])
+    end
         
     private
 
