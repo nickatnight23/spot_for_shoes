@@ -1,1 +1,6 @@
-Index!!
+<h1>All reviews for Shoes</h1>
+<ul>
+<%@reviews.each do |r|%>
+<li></li><%=r.shoe.shoe_type%>:<%=r.title%> - <%=r.stars%></li>
+<%end%>
+</ul>
