@@ -1,6 +1,15 @@
-<h1>All reviews for Shoes</h1>
+<% if @shoe %>
+  <h1>Reviews for <%= @shoe.flavor%> - <%= @shoe.brand_name%></h1>
+<% else %>
+  <h1>All the Reviews </h1>
+<% end %>
+
 <ul>
-<%@reviews.each do |r|%>
-<li></li><%=r.shoe.shoe_type%>:<%=r.title%> - <%=r.stars%></li>
-<%end%>
+<% @reviews.each do |review| %>
+
+  <li>
+    <%= @review.shoe.shoe_type%>: <%= link_to @review.title, review_path(review)%> - <%= @review.stars%>
+  </li> <br>
+
+<% end %>
 </ul>
