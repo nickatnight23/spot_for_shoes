@@ -15,7 +15,7 @@ shoe_type%> - <%=@review.shoe.brand.name%>
 <%else%>
 <div>
 <%=f.label :shoe_id, "Select a Shoe"%>
-<%= f.collection_select :shoe_id, Shoe.all, :id,
+<%= f.collection_select :shoe_id, Shoe.alpha, :id,:shoe_type_and_brand,
 :shoe_type, include_blank: true%>
 </div>
 <%end%>
