@@ -1,1 +1,8 @@
-Signed In!!<%=@user.username%>
+<h1>Welcome<%=@user.username%>'s Home page</h1>
+
+<h2>Here are the shoes that were reviewed by<%=@user.username%>:</h2>
+<ul>
+  <% @user.reviewed_shoes.each do |sh|%>
+   <li> <%= link_to sh.shoe_type_and_brand, shoe_path(sh)%> </li>
+  <% end %>
+</ul>
