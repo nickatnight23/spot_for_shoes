@@ -1,6 +1,24 @@
-<h1>Add a Review</h1>
+<%if params[:shoe_id]%>
+<h1>Add a Review for<%=@review.shoe.
+shoe_type%> - <%=@review.shoe.brand.name%>
+</h1>
+<%else%>
+<h1>Create a Review</h1>
+<%end%>
+
+<%=render partial: 'layouts/errors',locals: {object: @review} %>
+  
+
 <%=form_for(@review) do |f|%>
+<% if params[:shoe_id]%>
+<%= f.hidden_field :shoe_id%>
+<%else%>
 <div>
+<%=f.label :shoe_id, "Select a Shoe"%>
+<%= f.collection_select :shoe_id, Shoe.all, :id,
+:shoe_type, include_blank: true%>
+</div>
+<%end%>
 <%= f.label :stars%>
 <%= f.number_field :stars, min: 0, max: 5%>
 </div>
