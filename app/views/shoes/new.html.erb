@@ -1,29 +1,5 @@
-<h1>Add a new shoe!</h1>
+<h1>Make a new Shoe!!</h1>
 
-<%=render partial:'layouts/errors',locals: {object: @shoe} %>
 
-<%= form_for(@shoe) do |f|%>
-<div>
-<%= f.label :shoe_type%>
-<%= f.text_field :shoe_type%>
-</div>
-<div>
-<%= f.label :description%>
-<%= f.text_field :description%>
-</div>
-<p>Select a Brand that exists:</p>
-<div>
-    <%= f.collection_select :brand_id, Brand.all,:id, :name %>
-</div>
 
-<p> Or Create a new Brand:</p>
-<div>
-   <%= f.fields_for :brand do |b|%>
-   <%= b.label :name%>
-   <%= b.text_field :name%>
-   <% end %>
-</div>
-
-<%= f.submit :submit %>
-<% end %>
-
+<%= render partial: 'form'%>
