@@ -1,5 +1,7 @@
 <h1>Add a new shoe!</h1>
 
+<%=render partial:'layouts/errors',locals: {object: @shoe} %>
+
 <%= form_for(@shoe) do |f|%>
 <div>
 <%= f.label :shoe_type%>
