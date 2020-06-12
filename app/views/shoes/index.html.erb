@@ -1,10 +1,12 @@
 <h1>All Shoes!!</h1>
 
-<%@shoes.each do |sh|%>
+<% @ice_creams.each do |ic| %>
 
-<h2><%=sh.shoe_type%>- <%=sh.brand.name%></h2>
-<%= link_to "Write a Review",new_shoe_review_path(sh.id)%>
-<div>
-<p><%=sh.description%></p>
-</div>
-<%end%>
+  <h2><%= link_to sh.shoe_type, shoe_path(sh.id)%> - <%= sh.brand.name %> </h2>
+  <%= link_to "Write a review", new_shoe_review_path%>
+  <% if sh.image.attached? %>
+    <%= image_tag url_for(sh.thumbnail)%>
+  <% end %>
+  <div>
+    <p><%= sh.description %></p>
+  </div>
