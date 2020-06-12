@@ -1,1 +1,19 @@
-<h1> Shoe Show Page</h1>
+<h1><%= @shoe.shoe_type%>  </h1>
+
+
+<% if @shoe.image.attached? %>
+  <%= image_tag url_for(@shoe.image) %>
+<% end %>
+
+<h2> <%= @shoe.brand_name %> </h2>
+<div>
+  <p><%= @shoe.description %></p>
+</div>
+
+<h3>Added by: <%= link_to @shoe.user, user_path(@user)%> </h3>
+
+<%= link_to "Edit #{@shoe.flavor}", edit_shoe_path(@shoe) if @shoe.user == current_user%>
+
+<br>
+
+<%= link_to "See all Reviews", shoe_reviews_path(@shoe) %>
