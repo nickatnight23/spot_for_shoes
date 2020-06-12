@@ -15,7 +15,7 @@ class ShoesController < ApplicationController
     end
   end
     def index
-        @shoes = Shoe.all
+        @shoes = Shoe.order_by_rating.includes(:brand)
     end
 
     def show
