@@ -1,11 +1,13 @@
 class ReviewsController < ApplicationController
+    before_action :redirect_if_not_logged_in
 
     def new
-        @shoe = Shoe.find_by_id(params[:shoe_id])
-        @review = @shoe.reviews.build
-
-        # A review belongs_to a shoe
-    end
+        if @shoe = Shoe.find_by_id(params[:shoe_id])
+            @review = @shoe.reviews.build
+          else
+            @review = Review.new
+          end
+        end
 
     def create
        @review = current_user.reviews.build(review_params)
@@ -29,6 +31,7 @@ end
         else
         @reviews = Review.all
     end
+end
 
     private
 
@@ -36,6 +39,5 @@ end
         params.require(:review).permit(:shoe_id,
          :content, :stars, :title)
     end
-end
 end
 
