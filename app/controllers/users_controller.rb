@@ -15,14 +15,15 @@ class UsersController < ApplicationController
   end
 
     def show
-        @user = User.find(params[:id])
-        redirect_to '/' if !@user
+        redirect_if_not_logged_in
+    @user = User.find_by_id(params[:id])
+    redirect_to '/' if !@user
+  end
+end
 
-    end
 
     private
 
     def user_params
         params.require(:user).permit(:username,:password)
     end
-end
