@@ -13,8 +13,6 @@ class ShoesController < ApplicationController
         @shoe.user_id = session[:user_id]
    
        if @shoe.save #this is where validations happen
-         @shoe.image.purge
-         @shoe.image.attach(params[:shoe][:image])
          redirect_to shoe_path(@shoe)
        else
          @shoe.build_brand
