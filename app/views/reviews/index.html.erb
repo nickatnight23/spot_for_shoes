@@ -5,7 +5,8 @@
 <% end %>
 
 <ul>
-<% @reviews.each do |review| %>
+<% @reviews.each do |r| %>
+<li><%=r.shoe.shoe_type%><%=r.title%> - <%=r.stars%></li>
 
   <li>
     <%= @review.shoe.shoe_type%>: <%= link_to @review.title, review_path(review)%> - <%= @review.stars%>
