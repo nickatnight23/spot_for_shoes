@@ -2,11 +2,10 @@
 
 <% @shoes.each do |sh| %>
 
-  <h2><%= link_to sh.shoe_type, shoe_path(sh.id)%> - <%= sh.brand.name %> </h2>
-  <%= link_to ("Write a review #{@shoe.description}" new_shoe_review_path([@review, @shoe]))%>
-  <%# <% if sh.image.attached? %> %>
-   <%# <%= image_tag url_for(sh.thumbnail) %> %>
-  <% end %>
+  <h2><%=sh.shoe_type%> -<%=sh.brand.name%> </h2>
+  <%link_to "Write a review", new_shoe_review_path(sh.id)%>
   <div>
-    <p><%= sh.description %></p>
+
+  <p><%=sh.description%></p>
   </div>
+  <%end%>
