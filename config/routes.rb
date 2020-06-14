@@ -6,12 +6,15 @@ Rails.application.routes.draw do
   post 'signup' => 'users#create'
   delete '/logout' => 'sessions#destroy'
 
+  get '/auth/google_oauth2/callback' => 'sessions#ominauth'
+
   resources :reviews
   resources :shoes do
     resources :reviews, only: [:new, :index] #nested route
   end
 
   # resources :brands
-  resources :users, only: [:show]
+  resources :users
+  resources :brands
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
