@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
 end
 
     def show
-        @review = Review.find_by_id(params[:id])
+        # @review = Review.find_by_id(params[:id])
 
     end
 
