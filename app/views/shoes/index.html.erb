@@ -4,6 +4,8 @@
 
   <h2><%=sh.shoe_type%> -<%=sh.brand.name%> </h2>
   <%link_to "Write a review", new_shoe_review_path(sh.id)%>
+  <%=link_to 'Edit', edit_shoe_path(sh.id) %>
+  <%# <%=link_to 'Delete',   :method  :delete%> %>
   <div>
 
   <p><%=sh.description%></p>
