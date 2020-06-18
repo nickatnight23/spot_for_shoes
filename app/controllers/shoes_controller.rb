@@ -11,7 +11,6 @@ class ShoesController < ApplicationController
     def create
         @shoe = Shoe.new(shoe_params)
         @shoe.user_id = session[:user_id]
-   
        if @shoe.save #this is where validations happen
          redirect_to shoe_path(@shoe)
        else
@@ -28,17 +27,24 @@ class ShoesController < ApplicationController
     end
 
     def edit
+      @shoe = Shoe.find(params[:id])
     end
 
     def update
+      @shoe = Shoe.find(params[:id])
         if @shoe.update(shoe_params)
-            @shoe.image.purge
-            @shoe.image.attach(params[:shoe][:image])
             redirect_to shoe_path(@shoe)
           else
             render :edit
           end
+
+          def destroy
+            @shoe = Shoe.find(params[:id])
+            @shoe.destroy
+            redirect_to shoe_path(@shoe), :notice => "Shoe has been deleted"
+          end
         end
+
         
     private
 
