@@ -12,7 +12,7 @@
 
 <h3>Added by: <%= link_to @shoe.user, user_path(@user)%> </h3>
 
-<%= link_to "Edit #{@shoe.flavor}", edit_shoe_path(@shoe) if @shoe.user == current_user%>
+<%= link_to "Edit #{@shoe.shoe_type}", edit_shoe_path(@shoe) if @shoe.user == current_user%>
 
 <br>
 
