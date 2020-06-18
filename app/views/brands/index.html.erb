@@ -3,5 +3,6 @@
 <ol>
 <%@brands.each do |brand|%>
 <li><%= brand.name%></li>
+<%=link_to 'Delete', @brand, :confirm => "Are you sure?", :method => :delete%>
     <%end%>
 </ol>
