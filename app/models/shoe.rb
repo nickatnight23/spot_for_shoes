@@ -6,7 +6,7 @@ class Shoe < ApplicationRecord
 
   validates :shoe_type, presence: true
   validate :not_a_duplicate
-  # accepts_nested_attributes_for :brand
+  accepts_nested_attributes_for :brand
 
   scope :order_by_rating, ->{left_joins(:reviews).group(:id).
   order('avg(stars)desc')}
