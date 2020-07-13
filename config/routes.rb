@@ -8,9 +8,9 @@ Rails.application.routes.draw do
 
   get '/auth/google_oauth2/callback' => 'sessions#ominauth'
 
-  resources :reviews
+  # resources :reviews
   resources :shoes do
-    resources :reviews, only: [:new, :index] #nested route
+    resources :reviews, only: [:new, :create, :edit, :update, :delete] #nested route
   end
 
   # resources :brands
@@ -18,3 +18,4 @@ Rails.application.routes.draw do
   resources :brands
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
+
