@@ -1,34 +1,26 @@
 
 <%=  display_header(@review)%>
-<%=render partial: 'layouts/errors',locals: {object: @review} %>
-  
 
-<%= form_for(@review) do |f|%>
-<% if params[:shoe_id]%>
-<%= f.hidden_field :shoe_id%>
-<%else%>
-<div>
-<%=f.label :shoe_id, "Select a Shoe that exists"%>
-<%= f.collection_select :shoe_id, Shoe.all, :id,:shoe_type,
- include_blank: true %>
- <% f.submit%>
-<%end%>
-</div>
-<%= f.label :stars%>
-<%= f.number_field :stars, min: 0, max: 5%>
-</div>
-<br>
-<div>
-<%= f.label :title%>
-<%= f.text_field :title%>
-</div>
-<br>
-<div>
-<%= f.label :content%>
-<%= f.text_area :content%>
-<br>
-</div>
-<%= f.hidden_field :shoe_id%>
-<%= f.submit %>
+  
+<%= form_for :review, url: shoe_reviews_path, method: :post  do |f|%>
+    
+    <%= f.hidden_field :shoe_id%>
+
+    <%= f.label :stars%>
+    <%= f.number_field :stars, min: 0, max: 5%>
+    </div>
+    <br>
+    <div>
+    <%= f.label :title%>
+    <%= f.text_field :title%>
+    </div>
+    <br>
+    <div>
+    <%= f.label :content%>
+    <%= f.text_area :content%>
+    <br>
+    </div>
+    <%= f.hidden_field :shoe_id%>
+    <%= f.submit %>
 
 <%end%>
