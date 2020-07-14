@@ -37,11 +37,12 @@ class ShoesController < ApplicationController
           else
             render :edit
           end
+        end
 
           def destroy
             @shoe = Shoe.find(params[:id])
             @shoe.destroy
-            redirect_to shoe_path(@shoe), :notice => "Shoe has been deleted"
+            redirect_to new_shoe_path(@shoe), :notice => "Shoe has been deleted"
           end
         end
 
@@ -58,5 +59,5 @@ class ShoesController < ApplicationController
         redirect_to shoe_path if !@shoe
      end
    
-   end
+  
 
