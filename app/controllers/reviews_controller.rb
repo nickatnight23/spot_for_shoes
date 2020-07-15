@@ -17,7 +17,7 @@ class ReviewsController < ApplicationController
        @review.shoe_id = params[:shoe_id].to_i
        @shoe = Shoe.find_by_id(params[:shoe_id])
        if @review.save #checks for validation
-        redirect_to shoe_path(@shoe)
+        redirect_to shoe_reviews_path(shoe_id)
        else
         render :new
     end
@@ -30,11 +30,11 @@ end
 
     def index
         #how to check if nested? And a valid ID
+        @reviews = Review.all
         if @shoe = Shoe.find_by_id(params[:shoe_id])
             #nested
-            @reviews = @shoe.reviews
-        else
-        @reviews = Review.all
+          @reviews = @shoe.reviews
+        
     end
 end
 
