@@ -7,4 +7,10 @@
         include_blank: true %>
         <% f.submit%>
 
+        #how to check if nested? And a valid ID
+        if @shoe = Shoe.find_by_id(params[:shoe_id])
+            #nested
+            @reviews = @shoe.reviews
+        else
+        @reviews = Review.all
         
