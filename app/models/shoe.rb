@@ -1,7 +1,7 @@
 class Shoe < ApplicationRecord
   belongs_to :brand
   belongs_to :user #created it
-  has_many :reviews
+  has_many :reviews, dependent: :delete_all
   has_many :users, through: :reviews #people who have reviewed
 
   validates :shoe_type, presence: true
