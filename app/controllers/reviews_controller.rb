@@ -29,7 +29,7 @@ end
        @review.user_id = current_user.id
        @review.shoe_id = params[:shoe_id].to_i
        @shoe = Shoe.find_by_id(params[:shoe_id])
-       if @review.save! #checks for validation
+       if @review.save #checks for validation
         redirect_to shoe_reviews_path(params[:shoe_id])
        else
         render :new
@@ -38,6 +38,10 @@ end
 
     def show
         # @review = Review.find_by_id(params[:id])
+
+    end
+
+    def destroy
 
     end
 
