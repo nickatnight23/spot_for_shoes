@@ -2,9 +2,9 @@
   <h1>All the Reviews </h1>
 
 <ul>
-<% @reviews.each do |review| %>
+<% @reviews.each do |rw| %>
 <li>
-    <%#= @review.shoe.shoe_type%>: <%#= link_to @review.title, shoe_review_path(review)%> - <%#= @review.stars%>
+    <%= rw.shoe.shoe_type%>: <%= link_to rw.title, shoe_reviews_path(@review)%> - <%= rw.stars%>
   </li> <br>
 
 <% end %>
