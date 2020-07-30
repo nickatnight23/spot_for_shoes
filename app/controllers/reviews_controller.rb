@@ -32,6 +32,7 @@ end
        if @review.save #checks for validation
         redirect_to shoe_reviews_path(params[:shoe_id])
        else
+        binding.pry
         render :new
     end
 end
