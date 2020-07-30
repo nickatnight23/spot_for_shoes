@@ -6,7 +6,8 @@
   <%link_to "Write a review", new_shoe_review_path(sh.id)%>
   <%=link_to 'Edit', edit_shoe_path(sh.id) %>
   <br>
-  <%=link_to 'Destroy', shoe_path(sh.id),  method:  :delete%> %>
+  <%=link_to 'Destroy', shoe_path(sh.id),  method:  :delete %>
+
   <div>
 
   <p><%=sh.description%></p>
