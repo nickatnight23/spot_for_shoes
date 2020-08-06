@@ -32,7 +32,7 @@ end
        if @review.save #checks for validation
         redirect_to shoe_reviews_path(params[:shoe_id])
        else
-        binding.pry
+        # binding.pry
         render :new
     end
 end
@@ -40,6 +40,14 @@ end
     def show
         # @review = Review.find_by_id(params[:id])
 
+    end
+
+    def edit
+        @review = Review.find_by_id(params[:shoe_id]) 
+    end
+
+    def update
+        @review = Review.find_by_id(params[:shoe_id]) 
     end
 
     def destroy
