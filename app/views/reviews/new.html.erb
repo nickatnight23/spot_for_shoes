@@ -1,6 +1,6 @@
 
 <%=  display_header(@review)%>
-
+<%=render partial: 'layouts/errors', locals: {object: @review} %>
   
 <%= form_for :review, url: shoe_reviews_path, method: :post  do |f|%>
     
