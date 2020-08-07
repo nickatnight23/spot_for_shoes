@@ -1,5 +1,6 @@
-<%# <h2><% @shoes.each do |shoe| %></h2> %>
-<h1><%=@review.title%> - <%=@review.stars%></h1>
+<%<h2><% @shoes.each do |shoe| %></h2> %>
+<h1><%=@review.title%> - <%=@review.stars%>-<%= @review.content%> </h1>
+<%= link_to "Add a Review", new_shoe_review_path(shoe) %> |
 
-<p><%= @review.content%></p>
+
 
