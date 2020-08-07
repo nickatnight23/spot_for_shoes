@@ -14,3 +14,4 @@
         else
         @reviews = Review.all
         
+<%#= link_to 'Edit', edit_shoe_review_path(@shoe, rw)%>
