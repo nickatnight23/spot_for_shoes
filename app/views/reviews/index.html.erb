@@ -4,7 +4,7 @@
 <ul>
 <% @reviews.each do |rw| %>
 <li>
-    <%= rw.shoe.shoe_type%>: <%= link_to rw.title, shoe_reviews_path(rw.shoe, rw)%> - <%= rw.stars%>
+    <%= rw.shoe.shoe_type%>: <%= link_to rw.title, shoe_reviews_path(rw.shoe, rw)%> - <%= rw.stars%> - <%=rw.content%>
     
     <%= link_to 'Edit', edit_shoe_review_path(rw.shoe, rw)%>
   </li> <br>
