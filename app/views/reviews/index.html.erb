@@ -6,7 +6,7 @@
 <li>
     <%= rw.shoe.shoe_type%>: <%= link_to rw.title, shoe_reviews_path(rw.shoe, rw)%> - <%= rw.stars%> 
     <br>
-    <%=rw.brand.name%>
+    <%= rw.shoe.brand.name%>
      <p><%=rw.content%></p>
     
     <%= link_to 'Edit', edit_shoe_review_path(rw.shoe, rw)%>
