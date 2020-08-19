@@ -48,7 +48,11 @@ end
 
     def update
         @review = Review.find_by_id(params[:shoe_id]) 
+        if @review.update(review_params)
+      redirect_to shoe_reviews_path
+
     end
+end
 
     def destroy
 
