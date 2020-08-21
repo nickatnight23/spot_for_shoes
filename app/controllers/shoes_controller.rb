@@ -20,6 +20,7 @@ class ShoesController < ApplicationController
      end
      
     def index
+      # binding.pry
         @shoes = Shoe.order_by_rating.includes(:brand)
     end
 
