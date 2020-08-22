@@ -15,3 +15,6 @@
         @reviews = Review.all
         
 <%#= link_to 'Edit', edit_shoe_review_path(@shoe, rw)%>
+
+# scope :order_by_rating, -> { inner_join(:reviews).group(:id).
+#   order('avg(stars)desc')}
