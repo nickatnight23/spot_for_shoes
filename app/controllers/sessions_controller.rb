@@ -25,6 +25,12 @@ class SessionsController < ApplicationController
 end
 
         def omniauth
-            byebug   
+            omniauth = request.env['omniauth.auth'] ['info']
+            user = User.find_or_create_by(email: omniauth["email"]) do |u|
+            u.username = omniauth["name"]
+            u.password = SecureRandom.hex
         end
+        session[:user_id] = @user.id
+        redirect_to shoes_path
+    end
 end

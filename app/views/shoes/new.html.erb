@@ -3,6 +3,8 @@
 <%=render partial: 'layouts/errors', locals: {object: @shoe} %>
 
 
+
+
 <%= form_for(@shoe) do |f|%>
 <div>
 <%= f.label :shoe_type%>
@@ -27,8 +29,14 @@ OR
 
     <%end%>
 </div>
-
+<br>
+<div>
+<%= link_to 'back', shoes_path%>
+</div>
+<br>
 <%= f.submit :submit %>
+
+
 <%end%>
 
 
