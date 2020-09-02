@@ -24,15 +24,31 @@ class SessionsController < ApplicationController
     end
 end
 
+        def github
 
-        def omniauth
             binding.pry
-            omniauth = request.env['omniauth.auth'] ['info']
-            user = User.find_or_create_by(email: omniauth["email"]) do |u|
-            u.username = omniauth["name"]
-            u.password = SecureRandom.hex
+            @user = User.from_omniauth(request.env["omniauth.auth"])
+
+            sign_in_and_redirect_to @user
+
         end
-        session[:user_id] = @user.id
-        redirect_to shoes_path
     end
-end
+
+
+    private
+
+       def auth
+        request.env['omniauth.auth']
+       end
+
+    #     def omniauth
+    #         binding.pry
+    #         omniauth = request.env['omniauth.auth'] ['info']
+    #         user = User.find_or_create_by(email: omniauth["email"]) do |u|
+    #         u.username = omniauth["name"]
+    #         u.password = SecureRandom.hex
+    #     end
+    #     session[:user_id] = @user.id
+    #     redirect_to shoes_path
+    # end
+
