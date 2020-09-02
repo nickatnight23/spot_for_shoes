@@ -25,14 +25,13 @@ class SessionsController < ApplicationController
 end
 
         def github
-
-            binding.pry
+        #   binding.pry
             @user = User.from_omniauth(request.env["omniauth.auth"])
-
-            sign_in_and_redirect_to @user
-
-        end
+            session[:user_id] = @user.id
+            redirect_to shoes_path
     end
+    
+end
 
 
     private
