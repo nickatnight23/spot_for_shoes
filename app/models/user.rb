@@ -4,10 +4,10 @@ class User < ApplicationRecord
 
     has_many :shoes, dependent: :destroy
 
-    validates :username, uniqueness: true, presence: true
+    validates :username, uniqueness: true, presence: true :omniauthable
 
     has_secure_password
-end
+
 
 def self.create_with_omniauth(auth)
     create! do |user|
@@ -16,5 +16,17 @@ def self.create_with_omniauth(auth)
       user.name = auth["info"]["name"]
     end
   end
+
+  def self.from_omniauth(auth)
+    binding.pry
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.provider = auth.provider
+      user.username = auth.info.name
+      user.uid = auth.uid
+      user.email = auth.info.email
+      user.password = SecureRandom.hex(10)
+
+  end
+end
 end
 
