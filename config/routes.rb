@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   get '/auth/google_oauth2/callback' => 'sessions#omniauth'
+  get "/users/auth/github/callback" => 'sessions#create'
 
   # resources :reviews
   resources :shoes do
