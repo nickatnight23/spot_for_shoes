@@ -24,6 +24,7 @@ class SessionsController < ApplicationController
     end
 end
 
+
         def omniauth
             binding.pry
             omniauth = request.env['omniauth.auth'] ['info']
