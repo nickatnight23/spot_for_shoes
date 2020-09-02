@@ -30,7 +30,7 @@ class Shoe < ApplicationRecord
 end
 
   def shoe_type_and_brand
-    #"{shoe_type - #{brand.name}"
+    "#{shoe_type}- #{brand.name}"
   end
 end
 
