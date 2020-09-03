@@ -55,8 +55,14 @@ end
 end
 
     def destroy
-
+        @review = Shoe.find(params[:id])
+        if current_user == @shoe.user
+        @shoe.destroy
+        end
+        redirect_to new_shoe_path(@shoe), :notice => "Shoe has been deleted"
+      end
     end
+
 
     
 
