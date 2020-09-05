@@ -54,16 +54,25 @@ end
     end
 end
 
+    # def destroy
+    #   binding.pry
+    #     @review = Shoe.find(params[:id])
+    #     if current_user == @shoe.user
+    #     @shoe.destroy
+    #     end
+    #     redirect_to new_shoe_path(@shoe), :notice => "Shoe has been deleted"
+    #   end
+    # end
+
     def destroy
-        @review = Shoe.find(params[:id])
-        if current_user == @shoe.user
-        @shoe.destroy
-        end
-        redirect_to new_shoe_path(@shoe), :notice => "Shoe has been deleted"
+      @review = Review.find(params[:id])
+      @shoe = @review.shoe
+      if current_user == @review.user
+        @review.destroy
+      end
+        redirect_to new_shoe_path(@shoe), :notice => "Review has been deleted"
       end
     end
-
-
     
 
     private
@@ -72,5 +81,5 @@ end
         params.require(:review).permit(:shoe_id,
          :content, :stars, :title)
     end
-end
+
 
