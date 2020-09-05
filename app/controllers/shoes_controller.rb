@@ -35,6 +35,7 @@ class ShoesController < ApplicationController
     def update
       @shoe = Shoe.find(params[:id])
         if @shoe.update(shoe_params)
+          @shoe.save
             redirect_to shoe_path(@shoe)
           else
             render :edit
@@ -43,7 +44,7 @@ class ShoesController < ApplicationController
 
           def destroy
             @shoe = Shoe.find_by(id: params[:id])
-            if current_user == @shoe.user
+            if current_user == @shoe
             @shoe.destroy
             else
             redirect_to shoes_path(@shoe), :notice => "Shoe has been deleted"
