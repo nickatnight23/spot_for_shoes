@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   # resources :reviews
   resources :shoes do
-    resources :reviews, only: [:new, :create, :edit, :update, :destroy, :index] #nested route
+    resources :reviews, only: [:new, :create, :edit, :update, :index] #nested route
   end
 
   # resources :brands
