@@ -8,6 +8,7 @@ class Shoe < ApplicationRecord
   validate :not_a_duplicate
   accepts_nested_attributes_for :brand
 
+
   scope :order_by_rating, -> {joins("INNER JOIN reviews ON shoes.id = reviews.shoe_id").group(:id).
   order('avg(stars) desc')}
 
