@@ -20,8 +20,12 @@ class ShoesController < ApplicationController
      end
      
     def index
-      # binding.pry
-        @shoes = Shoe.order_by_rating.includes(:brand)
+        
+        @shoes = Shoe.all
+    end
+
+    def rating_review
+     @shoes = Shoe.order_by_rating.includes(:brand)
     end
 
     def show
@@ -46,7 +50,7 @@ class ShoesController < ApplicationController
             if current_user= @shoe
             @shoe.destroy
             else
-            redirect_to shoes_path(@shoe), :notice => "Shoe has been deleted"
+            redirect_to new_shoe_path(@shoe), :notice => "Shoe has been deleted"
           end
         end
 
