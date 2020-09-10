@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get '/auth/google_oauth2/callback' => 'sessions#omniauth'
   get "/auth/github/callback" => 'sessions#github'
+  get 'rating_review' => 'shoes#rating_review', as: 'top_rated'
 
   # resources :reviews
   resources :shoes do
