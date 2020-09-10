@@ -12,6 +12,10 @@ class Shoe < ApplicationRecord
   scope :order_by_rating, -> {joins("INNER JOIN reviews ON shoes.id = reviews.shoe_id").group(:id).
   order('avg(stars) desc')}
 
+  def avg_rating
+    Shoe.average(@shoe)
+  end
+
   def self.alpha #scope method
     order(:shoe_type)
   end
