@@ -13,8 +13,9 @@ class Shoe < ApplicationRecord
   order('avg(stars) desc')}
 
   def avg_rating
-    Shoe.average(@shoe)
+    self.reviews.average(:stars) 
   end
+
 
   def self.alpha #scope method
     order(:shoe_type)
