@@ -3,11 +3,15 @@
 <% @shoes.each do |sh| %>
 
   <h2><%=sh.shoe_type%> -<%=sh.brand.name%> </h2>
+  <br>
   <%=link_to "Write a review", new_shoe_review_path(sh.id)%>
+  <br>
   <%=link_to "rating_review", top_rated_path%>
+  <br>
   <%=link_to 'Edit', edit_shoe_path(sh.id) %>
   <br>
   <%=link_to 'Destroy', shoe_path(sh.id),  method:  :delete %>
+  <br>
 
   <div>
 
