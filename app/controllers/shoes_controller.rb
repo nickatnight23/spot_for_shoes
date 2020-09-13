@@ -47,7 +47,7 @@ class ShoesController < ApplicationController
 
           def destroy
             @shoe = Shoe.find_by(id: params[:id])
-            if current_user= @shoe
+            if current_user== @shoe.user
             @shoe.destroy
             else
             redirect_to new_shoe_path(@shoe), :notice => "Shoe has been deleted"
