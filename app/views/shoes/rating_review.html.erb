@@ -1,0 +1,9 @@
+<h1> Shoes ordered by rating</h1>
+
+<% @shoes.each do |sh| %>
+<br>
+<%=sh.shoe_type%>
+<br>
+<%=sh.avg_rating%>
+<%end%>
+

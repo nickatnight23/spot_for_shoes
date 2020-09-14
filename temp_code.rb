@@ -19,66 +19,22 @@
 # scope :order_by_rating, -> { inner_join(:reviews).group(:id).
 #   order('avg(stars)desc')}
 
-<%# <%= form_for(@shoe) do |f|%>
-<div>
-<%= f.label :shoe_type%>
-<%= f.text_field :shoe_type%>
-</div>
-<div>
-<%= f.label :description%>
-<%= f.text_field :description%>
-</div>
+# def destroy
+    #   binding.pry
+    #     @review = Shoe.find(params[:id])
+    #     if current_user == @shoe.user
+    #     @shoe.destroy
+    #     end
+    #     redirect_to new_shoe_path(@shoe), :notice => "Shoe has been deleted"
+    #   end
+    # end
 
-<p>Select a Brand that Exists</p>
-<div>
-    <%= f.collection_select :brand_id, Brand.all, :id, :name%>
-<div>
-OR
-
-<p>Create a New Brand:</p>
-<div>
-    <%=f.fields_for :brand do |b|%>
-    <%=b.label :name%>
-     <%=b.text_field :name%>
-
-    <%end%>
-</div>
-
-<%= f.submit :submit %>
-<%end%>
-
-
-
- %>
-
-
- <%= form_for(@shoe) do |f|%>
-    <div>
-    <%= f.label :shoe_type%>
-    <%= f.text_field :shoe_type%>
-    </div>
-    <div>
-    <%= f.label :description%>
-    <%= f.text_field :description%>
-    </div>
-    
-    <p>Select a Brand that Exists</p>
-    <div>
-        <%= f.collection_select :brand_id, Brand.all, :id, :name%>
-    <div>
-    OR
-    
-    <p>Create a New Brand:</p>
-    <div>
-        <%=f.fields_for :brand do |b|%>
-        <%=b.label :name%>
-         <%=b.text_field :name%>
-    
-        <%end%>
-    </div>
-    
-    <%= f.submit :submit %>
-    <%end%>
-    
-    
-    
+    def destroy
+        @review = Review.find(params[:id])
+        @shoe = @review.shoe
+        if current_user == @review.user
+          @review.destroy
+        end
+          redirect_to shoe_reviews_path(@shoe), :notice => "Review has been deleted"
+        end
+      end
